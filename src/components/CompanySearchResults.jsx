@@ -5,13 +5,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { removeFromFavouriteAction } from "../redux/actions";
+import JobSel from "./JobSel";
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
   const baseEndpoint =
     "https://strive-benchmark.herokuapp.com/api/jobs?search=";
-  const work = useSelector((state) => state.work.content);
+  const work = useSelector((store) => store.job.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,10 +43,10 @@ const CompanySearchResults = () => {
       <Row className="mt-4">
         <Col>
           {work.map((jobData, i) => (
-            <div id="flex-row">
+            <div id="flex-row" key={jobData._id}>
               <Job
                 key={jobData._id}
-                data={jobData}
+                jobSelected={jobData}
                 delete="Delete item from the list"
               />
               <Button
