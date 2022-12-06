@@ -8,6 +8,7 @@ const Job = ({ jobSelected }) => {
   const dispatch = useDispatch();
   return (
     <Row
+      id="grow-1"
       className="mx-0 mt-3 p-3"
       style={{ border: "1px solid #00000033", borderRadius: 4 }}
     >
