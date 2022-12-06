@@ -25,6 +25,9 @@
   align-items: center;
   justify-content: space-between;
 }
+#block{
+  display: block;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
